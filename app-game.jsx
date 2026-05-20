@@ -278,7 +278,6 @@ function Game({ soundOn }) {
                     src={c.gameSrc || c.src} alt={c.name} draggable={false}
                     style={{
                       width: 96, height: 96, objectFit: 'contain',
-                      filter: 'drop-shadow(2px 2px 0 var(--ink))',
                       userSelect: 'none', pointerEvents: 'none'
                     }} />
                   
