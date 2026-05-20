@@ -153,6 +153,16 @@ h1, h2, h3 { margin: 0; }
   cursor: pointer;
 }
 .nav-link:hover { background: var(--y); }
+.nav-link--disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+.nav-link--disabled::after {
+  content: ' · Soon';
+  font-size: 11px;
+  opacity: 0.8;
+}
 
 /* ====== Dark mode toggle ====== */
 .mode-toggle {

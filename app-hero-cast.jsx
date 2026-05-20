@@ -104,6 +104,7 @@ function TopNav({ onJump, mode, onToggleMode }) {
         <a className="nav-link" onClick={() => onJump('manifesto')}>Manifesto</a>
         <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
         <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
+        <a className="nav-link nav-link--disabled">Store</a>
       </div>
       {/* mode-toggle hidden for now */}
     </nav>);
