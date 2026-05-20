@@ -64,10 +64,15 @@ function Game({ soundOn }) {
   const dragRef = useRefG({ id: null, offX: 0, offY: 0, ele: null });
   const nextIdRef = useRefG(1);
 
-  const randomOrangePos = () => ({
-    x: 34 + Math.random() * 110,
-    y: 34 + Math.random() * 100
-  });
+  const randomOrangePos = () => {
+    const stageW = stageRef.current?.clientWidth || 760;
+    const zone = Math.floor(Math.random() * 3); // 0=left 1=center 2=right
+    const cx = zone === 0 ? 114 : zone === 1 ? stageW / 2 : stageW - 114;
+    return {
+      x: cx - 70 + Math.random() * 110,
+      y: 30 + Math.random() * 100,
+    };
+  };
 
   useEffectG(() => {localStorage.setItem('capy-name', playerName);}, [playerName]);
 
@@ -240,10 +245,12 @@ function Game({ soundOn }) {
               onPointerCancel={onPointerUp}
               style={{ touchAction: 'none' }}>
               
-              <div className="game-tree">
-                <div className="tree-leaves" />
-                <div className="tree-trunk" />
-              </div>
+              {['left', 'center', 'right'].map((pos) => (
+                <div key={pos} className={`game-tree game-tree-${pos}`}>
+                  <div className="tree-leaves" />
+                  <div className="tree-trunk" />
+                </div>
+              ))}
 
               {oranges.map((o) =>
               <div

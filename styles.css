@@ -533,10 +533,13 @@ section { position: relative; padding: 96px 24px; }
 
 .game-tree {
   position: absolute;
-  left: 24px; top: 24px;
+  top: 24px;
   width: 180px; height: 260px;
   display: grid; place-items: center;
 }
+.game-tree-left   { left: 24px; }
+.game-tree-center { left: 50%; transform: translateX(-50%); }
+.game-tree-right  { right: 24px; }
 .tree-trunk {
   position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
   width: 30px; height: 110px;
