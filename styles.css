@@ -608,7 +608,7 @@ section { position: relative; padding: 96px 24px; }
 
 .game-capys {
   position: absolute;
-  bottom: 24px;
+  bottom: 8px;
   left: 220px;
   right: 16px;
   display: flex;
