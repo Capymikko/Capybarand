@@ -769,7 +769,6 @@ section { position: relative; padding: 96px 24px; }
 }
 .wheel-spin-btn img {
   width: 84%; height: 84%; object-fit: contain;
-  filter: drop-shadow(2px 2px 0 var(--ink));
   pointer-events: none;
 }
 .wheel-spin-btn .spin-label {

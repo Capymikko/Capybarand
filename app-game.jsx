@@ -722,7 +722,6 @@ function Spring({ soundOn }) {
                     src={c.gameSrc || c.src} alt={c.name} draggable={false}
                     style={{
                       width: 110, height: 110, objectFit: 'contain',
-                      filter: 'drop-shadow(2px 2px 0 var(--ink))',
                       userSelect: 'none', pointerEvents: 'none',
                       maskImage: 'linear-gradient(180deg, #000 0%, #000 62%, transparent 92%)',
                       WebkitMaskImage: 'linear-gradient(180deg, #000 0%, #000 62%, transparent 92%)'
