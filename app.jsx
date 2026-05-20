@@ -1,4 +1,4 @@
-/* global React, ReactDOM, TopNav, Hero, Cast, Game, Manifesto, Spring, FooterBar, SkyDecor,
+/* global React, ReactDOM, TopNav, Hero, Cast, Game, Manifesto, BrandWheel, Spring, FooterBar, SkyDecor,
    playWheek, TweaksPanel, TweakSection, TweakToggle, TweakRadio, TweakColor, useTweaks */
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
@@ -34,6 +34,7 @@ function App() {
         <Cast onSqueak={onSqueak} />
         <Game soundOn={t.sound} />
         <Manifesto />
+        <BrandWheel />
         <Spring soundOn={t.sound} />
         <FooterBar />
       </div>

@@ -647,6 +647,171 @@ section { position: relative; padding: 96px 24px; }
 }
 [data-mode="night"] .manifesto-th { color: var(--y-soft); }
 
+/* ====== Brand Wheel (interactive spokes) ====== */
+.wheel {
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+[data-mode="night"] .wheel { background: var(--bg-soft); }
+.wheel::before, .wheel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 3px dashed var(--ink);
+  opacity: 0.08;
+  pointer-events: none;
+}
+.wheel::before { width: 520px; height: 520px; top: -120px; right: -180px; }
+.wheel::after  { width: 380px; height: 380px; bottom: -160px; left: -120px; }
+
+.wheel { padding: 56px 24px; }
+.wheel .section-title { font-size: clamp(30px, 4vw, 52px); }
+.wheel-stage {
+  position: relative;
+  width: min(440px, 78vw);
+  aspect-ratio: 1;
+  margin: 36px auto 24px;
+}
+.wheel-svg {
+  width: 100%; height: 100%;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.18);
+}
+.wheel-svg.is-spinning {
+  transition: transform 1.8s cubic-bezier(0.16, 0.78, 0.22, 1);
+}
+.wheel-seg path {
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.wheel-seg:hover path {
+  filter: brightness(1.1) saturate(1.25);
+}
+.wheel-seg.active path {
+  filter: brightness(1.12) saturate(1.3) drop-shadow(0 0 6px rgba(0,0,0,0.2));
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  filter: drop-shadow(2px 2px 0 var(--ink));
+  animation: pointerBob 1.4s ease-in-out infinite;
+}
+@keyframes pointerBob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-4px); }
+}
+
+.wheel-spin-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28%; height: 28%;
+  background: var(--y);
+  border: var(--border-pixel);
+  border-radius: 50%;
+  box-shadow: var(--shadow-pixel);
+  cursor: pointer;
+  display: grid; place-items: center;
+  z-index: 6;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  padding: 0;
+  font-family: var(--font-disp);
+}
+.wheel-spin-btn img {
+  width: 84%; height: 84%; object-fit: contain;
+  filter: drop-shadow(2px 2px 0 var(--ink));
+  pointer-events: none;
+}
+.wheel-spin-btn .spin-label {
+  position: absolute;
+  bottom: -18px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--y);
+  font-family: var(--font-disp);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  border: 3px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.wheel-spin-btn:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: var(--orange);
+}
+.wheel-spin-btn:active { transform: translate(-50%, -50%) scale(0.96); }
+.wheel-spin-btn:disabled { opacity: 0.9; cursor: not-allowed; }
+
+.wheel-panel {
+  position: relative;
+  max-width: 720px;
+  margin: 32px auto 0;
+  background: var(--cream);
+  border: 4px solid var(--ink);
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  box-shadow: var(--shadow-pixel);
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+.wheel-panel::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 24px; right: 24px;
+  height: 10px;
+  background: var(--accent, var(--y));
+  border: 3px solid var(--ink);
+  border-radius: 6px 6px 0 0;
+  transition: background 0.3s ease;
+}
+.wheel-panel-num {
+  display: inline-block;
+  font-family: var(--font-disp);
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  padding: 4px 14px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  background: var(--accent, var(--y));
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.wheel-panel-title {
+  font-family: var(--font-disp);
+  font-size: clamp(38px, 5.4vw, 60px);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 3px 3px 0 var(--accent, var(--y));
+}
+.wheel-panel-tag {
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-top: 16px;
+  font-style: italic;
+  text-wrap: balance;
+}
+.wheel-panel-th {
+  font-family: var(--font-th);
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
 /* ====== Hot spring / Onsen Pop game ====== */
 .spring {
   background: var(--bg-soft);

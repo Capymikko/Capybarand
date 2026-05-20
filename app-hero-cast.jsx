@@ -102,6 +102,7 @@ function TopNav({ onJump, mode }) {
         <a className="nav-link" onClick={() => onJump('cast')}>Cast</a>
         <a className="nav-link" onClick={() => onJump('game')}>Play</a>
         <a className="nav-link" onClick={() => onJump('manifesto')}>Manifesto</a>
+        <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
         <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
       </div>
     </nav>);
@@ -179,16 +180,16 @@ function Hero({ heroVariant, onSqueak }) {
         <div>
           <div className="badges">
             <span className="badge y">EST. 2020</span>
-            <span className="badge o">VOL. 2027</span>
+            <span className="badge o">VOL. 2026</span>
             <span className="badge g">♡ MADE&nbsp;IN&nbsp;TH</span>
           </div>
           <h1 className="hero-title" style={{ marginTop: 24 }}>
             DON’T<br />WORRY,<br />BE CAPY.
           </h1>
           <div className="hero-th">อย่ากังวล อยู่อย่างคาปี้</div>
-          <p className="hero-sub">
-            A tiny brand of guinea pigs we pretend are capybaras.
-            Calm confidence, warm fuzz, and a permanent supply of oranges.
+          <p className="hero-sub">Cheerful comfort for everyday mindful living. Five guinea pigs, one calm philosophy, and a permanent supply of oranges.
+
+
           </p>
           <div className="hero-ctas">
             <button className="pxbtn orange" onClick={() => {
@@ -212,7 +213,7 @@ function Hero({ heroVariant, onSqueak }) {
             style={{ cursor: 'pointer', perspective: '900px' }}
             onClick={handleClick}>
             
-            <span className="corner-tag">Capy · 2027</span>
+            <span className="corner-tag">CPBR · 2026</span>
             <span className="corner-tag right">Click me ♡</span>
             <div
               ref={portraitRef}
@@ -272,7 +273,7 @@ function Cast({ onSqueak }) {
   return (
     <section id="cast">
       <div className="section-inner">
-        <div className="section-eyebrow">★ The Cast · นักแสดง</div>
+        <div className="section-eyebrow" style={{ fontFamily: "Jumble" }}>★ The Cast · <span style={{ fontFamily: "\"IBM Plex Sans Thai\"", fontWeight: "700" }}>นักแสดง</span></div>
         <h2 className="section-title">Meet the Capys</h2>
         <div className="section-th" style={{ fontFamily: "\"IBM Plex Sans Thai\"" }}>หนูตะเภา 5 ตัว ที่เราเรียกพวกเขาว่าคาปิบารา</div>
         <div className="cast-grid">
@@ -321,7 +322,7 @@ function CapyCard({ capy, onSqueak }) {
         borderRadius: 8, padding: "0px", width: "180px", height: "200px"
       }}>
         <img
-          src={capy.src}
+          src={capy.cardSrc || capy.src}
           alt={capy.name}
           draggable={false}
           style={{
