@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="day">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Capybarand 2027 · Print</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  @keyframes cursorFade {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(0, -28px) scale(0.4); }
+  }
+
+  /* ============ PRINT STYLES ============ */
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  /* Always force backgrounds, even in print */
+  html, body, * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @media print {
+    /* Hide fixed/floating chrome */
+    .topnav,
+    .clouds,
+    .stars,
+    .sky-bg,
+    .cart-fab,
+    /* tweaks panel + its launcher */
+    [id^="twk"], .twk-panel, .twk-handle, .twk-window,
+    /* cursor trail */
+    .cursor-trail,
+    /* mini-game overlays not useful in PDF */
+    .game-over, .press-start,
+    /* leaderboard + interactive HUD don't print well */
+    .scoreboard, .game-hud, .name-input,
+    /* bubbles, oranges, sparkles, pops */
+    .bubble-target, .tree-orange, .sparkle, .score-pop, .onsen-pop,
+    .want-bubble,
+    /* CTA buttons */
+    .pxbtn {
+      display: none !important;
+    }
+
+    body {
+      overflow: visible !important;
+      background: var(--bg) !important;
+    }
+
+    /* Each section starts a fresh page */
+    section {
+      break-before: page;
+      break-inside: avoid;
+      padding: 24px 12px !important;
+      min-height: auto !important;
+    }
+    .hero { break-before: avoid; min-height: auto !important; padding-top: 16px !important; }
+
+    /* Constrain hero face on print */
+    .face-frame {
+      width: 360px !important;
+      box-shadow: 4px 4px 0 #000 !important;
+    }
+    .hero-grid {
+      gap: 24px !important;
+    }
+    .hero-title {
+      font-size: 56px !important;
+      text-shadow: 3px 3px 0 var(--y), 6px 6px 0 var(--tan) !important;
+    }
+    .section-title {
+      font-size: 48px !important;
+    }
+    .manifesto-quote { font-size: 56px !important; line-height: 1 !important; }
+
+    /* Cast grid: keep all 5 on one page if possible */
+    .cast-grid {
+      grid-template-columns: repeat(5, 1fr) !important;
+      gap: 12px !important;
+    }
+    .capy-card {
+      break-inside: avoid;
+      padding: 12px 8px 10px !important;
+    }
+    .capy-card .name { font-size: 18px !important; }
+
+    /* Game stage: just show the scene without HUD/scoreboard */
+    .game-layout {
+      grid-template-columns: 1fr !important;
+    }
+    .game-stage, .onsen-stage {
+      min-height: 380px !important;
+      height: 380px !important;
+      box-shadow: 4px 4px 0 #000 !important;
+    }
+
+    /* Bliss bar prints fine, just clean up */
+    .bliss-bar { break-inside: avoid; }
+
+    /* Tweaks/cart hidden via display:none above */
+
+    footer { break-inside: avoid; padding: 24px 12px !important; }
+
+    /* Make sure transforms from React tilt etc don't persist */
+    .face-frame > div { transform: none !important; }
+    .hero-wiggle { animation: none !important; }
+    .onsen-capy, .cloud, .spring-orange, .spring-steam {
+      animation: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Components -->
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="sprites.jsx"></script>
+  <script type="text/babel" src="app-hero-cast.jsx"></script>
+  <script type="text/babel" src="app-game.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+
+  <!-- Auto-print: wait for fonts + Babel-transpiled JSX + React render -->
+  <script type="text/babel">
+    (async () => {
+      try { await document.fonts.ready; } catch {}
+      // Wait for an actual render
+      let tries = 0;
+      while (!document.querySelector('.hero-title') && tries < 50) {
+        await new Promise(r => setTimeout(r, 100));
+        tries++;
+      }
+      // Cushion for image decoding + transitions
+      await new Promise(r => setTimeout(r, 800));
+      window.print();
+    })();
+  </script>
+</body>
+</html>
