@@ -51,7 +51,7 @@ const CAST = [
   {
     id: 'capy',
     name: 'CAPY',
-    nameTh: 'แคปปี้',
+    nameTh: 'คาปี้',
     role: 'The Leader',
     roleTh: 'ผู้นำใจสงบ',
     src: 'assets/capy.svg',

@@ -351,7 +351,7 @@ function Manifesto() {
           all the way.
         </p>
         <div className="manifesto-th">
-          ไม่ต้องกังวล อยู่ให้สบาย ๆ เหมือนแคปปี้<br />
+          ไม่ต้องกังวล อยู่ให้สบาย ๆ เหมือนคาปี้<br />
           แล้วก็ส่งเสียงวี้ก ๆ ตลอดทาง
         </div>
         <div className="badges" style={{ justifyContent: 'center', marginTop: 28 }}>
@@ -655,7 +655,7 @@ function FooterBar() {
   return (
     <footer>
       <div>Capybarand © 2020–2027 · ♡ from Bangkok</div>
-      <div className="footer-th">แคปปี้ขอขอบคุณที่แวะมา&nbsp;~ แล้วเจอกันใหม่นะ</div>
+      <div className="footer-th">คาปี้ขอขอบคุณที่แวะมา&nbsp;~ แล้วเจอกันใหม่นะ</div>
     </footer>
   );
 }

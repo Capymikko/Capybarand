@@ -10,11 +10,11 @@ const PRODUCTS = [
   {
     id: 'tee-classic',
     name: 'Capy Classic Tee',
-    nameTh: 'เสื้อยืดแคปปี้',
+    nameTh: 'เสื้อยืดคาปี้',
     price: 690,
     tag: 'New',
     blurb: 'Heavy 240gsm cotton, brown ink screen-print of CAPY on the front. Unisex fit.',
-    blurbTh: 'ผ้าฝ้าย 240 แกรม สกรีนหมึกน้ำตาล รูปแคปปี้ที่หน้าอก',
+    blurbTh: 'ผ้าฝ้าย 240 แกรม สกรีนหมึกน้ำตาล รูปคาปี้ที่หน้าอก',
     bg: '#FFD261',
     overlay: 'assets/capy.svg',
     stock: 'in',
@@ -35,7 +35,7 @@ const PRODUCTS = [
   {
     id: 'plush-capy',
     name: 'Capy Plushie',
-    nameTh: 'ตุ๊กตาแคปปี้',
+    nameTh: 'ตุ๊กตาคาปี้',
     price: 1290,
     tag: 'Coming Soon',
     blurb: '20cm tall, super soft minky fur, embroidered face. Limited run of 200.',
@@ -402,7 +402,7 @@ function Merch() {
       <div className="section-inner">
         <div className="section-eyebrow">✦ Shop · ร้านค้า</div>
         <h2 className="section-title">The Capy Store</h2>
-        <div className="section-th">ของขวัญสำหรับคนรักแคปปี้ · เปิดพรีออเดอร์</div>
+        <div className="section-th">ของขวัญสำหรับคนรักคาปี้ · เปิดพรีออเดอร์</div>
 
         <div className="merch-filters">
           {[

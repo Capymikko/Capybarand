@@ -185,7 +185,7 @@ function Hero({ heroVariant, onSqueak }) {
           <h1 className="hero-title" style={{ marginTop: 24 }}>
             DON’T<br />WORRY,<br />BE CAPY.
           </h1>
-          <div className="hero-th">อย่ากังวล อยู่อย่างแคปปี้</div>
+          <div className="hero-th">อย่ากังวล อยู่อย่างคาปี้</div>
           <p className="hero-sub">
             A tiny brand of guinea pigs we pretend are capybaras.
             Calm confidence, warm fuzz, and a permanent supply of oranges.
