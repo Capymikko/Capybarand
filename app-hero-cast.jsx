@@ -105,13 +105,7 @@ function TopNav({ onJump, mode, onToggleMode }) {
         <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
         <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
       </div>
-      <button className="mode-toggle" onClick={onToggleMode} aria-label="Toggle dark mode">
-        <span className="mode-toggle-icon">☀</span>
-        <span className="mode-toggle-track">
-          <span className="mode-toggle-thumb" />
-        </span>
-        <span className="mode-toggle-icon">☾</span>
-      </button>
+      {/* mode-toggle hidden for now */}
     </nav>);
 
 }
