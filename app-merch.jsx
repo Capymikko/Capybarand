@@ -41,7 +41,7 @@ const PRODUCTS = [
     blurb: '20cm tall, super soft minky fur, embroidered face. Limited run of 200.',
     blurbTh: 'สูง 20 ซม. ขนนุ่มมาก ปักหน้าด้วยมือ ผลิตจำกัด 200 ตัว',
     bg: '#F28522',
-    overlay: 'assets/capoi.png',
+    overlay: 'assets/capoi.svg',
     stock: 'soon',
   },
   {

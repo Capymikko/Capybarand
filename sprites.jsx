@@ -78,7 +78,7 @@ const CAST = [
     nameTh: 'แคปอย',
     role: 'The Loud One',
     roleTh: 'สายเสียงดัง',
-    src: 'assets/capoi.png',
+    src: 'assets/capoi.svg',
     swatch: '#704C28',
     tone: '#FFD261',
     quote: 'Wheek wheek WHEEK!',
