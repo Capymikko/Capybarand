@@ -188,7 +188,7 @@ function Hero({ heroVariant, onSqueak }) {
             DON’T<br />WORRY,<br />BE CAPY.
           </h1>
           <div className="hero-th">อย่ากังวล อยู่อย่างคาปี้</div>
-          <p className="hero-sub">Cheerful comfort for everyday mindful living. Five guinea pigs, one calm philosophy, and a permanent supply of oranges.
+          <p className="hero-sub">Cheerful comfort for everyday mindful living.<br />Five guinea pigs, one calm philosophy<br />and a permanent supply of oranges.
 
 
           </p>
