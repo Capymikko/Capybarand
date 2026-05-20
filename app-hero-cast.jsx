@@ -317,7 +317,7 @@ function CapyCard({ capy, onSqueak }) {
       <div style={{
         display: 'grid', placeItems: 'center',
         overflow: 'hidden',
-        background: capy.id === 'capoi' ? 'var(--bg-soft)' : 'transparent',
+        background: 'transparent',
         borderRadius: 8, padding: "0px", width: "180px", height: "200px"
       }}>
         <img
