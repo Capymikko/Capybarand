@@ -154,6 +154,39 @@ h1, h2, h3 { margin: 0; }
 }
 .nav-link:hover { background: var(--y); }
 
+/* ====== Dark mode toggle ====== */
+.mode-toggle {
+  display: flex; align-items: center; gap: 7px;
+  background: var(--cream);
+  border: var(--border-pixel);
+  box-shadow: var(--shadow-pixel-sm);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.mode-toggle-icon { font-size: 15px; line-height: 1; }
+.mode-toggle-track {
+  position: relative;
+  width: 40px; height: 22px;
+  background: var(--bg-soft);
+  border-radius: 999px;
+  border: 2px solid var(--black);
+  flex-shrink: 0;
+}
+.mode-toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  background: var(--y);
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  transition: transform 0.2s ease;
+}
+[data-mode="night"] .mode-toggle-thumb {
+  transform: translateX(18px);
+}
+
 /* ====== Hero ====== */
 .hero {
   min-height: 100vh;

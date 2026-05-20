@@ -24,11 +24,15 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const toggleMode = React.useCallback(() => {
+    setT('mode', t.mode === 'day' ? 'night' : 'day');
+  }, [t.mode]);
+
   return (
     <>
       <SkyDecor mode={t.mode} />
       <CursorTrail kind={t.cursor} />
-      <TopNav onJump={jump} mode={t.mode} />
+      <TopNav onJump={jump} mode={t.mode} onToggleMode={toggleMode} />
       <div id="app">
         <Hero heroVariant={t.hero} onSqueak={onSqueak} />
         <Cast onSqueak={onSqueak} />

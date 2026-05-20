@@ -88,7 +88,7 @@ function SkyDecor() {
 /* =========================================================================
  * Top Nav with circular badge
  * ========================================================================= */
-function TopNav({ onJump, mode }) {
+function TopNav({ onJump, mode, onToggleMode }) {
   return (
     <nav className="topnav">
       <div className="brandmark">
@@ -105,6 +105,13 @@ function TopNav({ onJump, mode }) {
         <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
         <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
       </div>
+      <button className="mode-toggle" onClick={onToggleMode} aria-label="Toggle dark mode">
+        <span className="mode-toggle-icon">☀</span>
+        <span className="mode-toggle-track">
+          <span className="mode-toggle-thumb" />
+        </span>
+        <span className="mode-toggle-icon">☾</span>
+      </button>
     </nav>);
 
 }
