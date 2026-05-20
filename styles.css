@@ -786,7 +786,6 @@ section { position: relative; padding: 96px 24px; }
   border-radius: 999px;
   white-space: nowrap;
   border: 3px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
 }
 .wheel-spin-btn:hover { transform: translate(-50%, -50%) scale(1.06); }
 .wheel-spin-btn:active { transform: translate(-50%, -50%) scale(0.96); }
