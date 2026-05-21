@@ -684,12 +684,13 @@ section { position: relative; padding: 96px 24px; }
 .game-capys {
   position: absolute;
   bottom: 8px;
-  left: 220px;
-  right: 16px;
+  left: 0;
+  right: 0;
   display: flex;
   gap: 8px;
   align-items: flex-end;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 .game-capy {
   position: relative;
@@ -1230,9 +1231,10 @@ footer .footer-th {
  * RESPONSIVE — Tablet ≤ 768px
  * =================================================================== */
 @media (max-width: 768px) {
-  /* Nav: hide links, show hamburger */
+  /* Nav: hide links, show hamburger; match side padding to hero content */
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .topnav { padding: 16px 16px; }
 
   /* Hero — bigger image + breathing room between buttons and image */
   .hero { padding: 88px 16px 40px; }
@@ -1256,7 +1258,7 @@ footer .footer-th {
   .game-tree  { width: 120px; height: 180px; }
   .tree-leaves { width: 120px; height: 112px; }
   .tree-trunk  { width: 22px; height: 68px; }
-  .game-capys  { left: 0; right: 0; justify-content: center; flex-wrap: nowrap; gap: 6px; }
+  .game-capys  { gap: 6px; }
   .game-capy img { width: 72px !important; height: 72px !important; }
 
   /* Wheel */
@@ -1275,7 +1277,8 @@ footer .footer-th {
  * RESPONSIVE — Phone ≤ 480px
  * =================================================================== */
 @media (max-width: 480px) {
-  /* Nav brandmark shrink */
+  /* Nav: match side padding to hero content */
+  .topnav { padding: 16px 12px; }
   .brandmark { font-size: 17px; padding: 5px 12px 5px 6px; }
   .brandmark img { width: 32px !important; height: 32px !important; }
 
@@ -1301,7 +1304,7 @@ footer .footer-th {
   .tree-trunk  { width: 16px; height: 55px; }
   .game-tree-left  { left: 10px; }
   .game-tree-right { right: 10px; }
-  .game-capys { left: 0; right: 0; justify-content: center; flex-wrap: nowrap; gap: 4px; }
+  .game-capys { gap: 4px; }
   .game-capy img { width: 64px !important; height: 64px !important; }
   .game-hud { gap: 8px; }
   .score-chip { font-size: 15px; padding: 6px 12px; }
