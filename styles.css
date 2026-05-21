@@ -887,16 +887,20 @@ section { position: relative; padding: 96px 24px; }
   background: linear-gradient(90deg, var(--y) 0%, var(--orange) 60%, var(--green) 100%);
   background-size: 240px 100%;
   transition: width 0.25s ease;
-  display: flex; align-items: center; justify-content: flex-end;
-  padding-right: 10px;
-  min-width: 28px;
+  border-radius: inherit;
 }
 .bliss-bar-percent {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   font-family: var(--font-disp);
   font-size: 14px;
-  color: var(--cream);
-  text-shadow: 1px 1px 0 var(--ink);
+  font-weight: 800;
+  color: var(--ink);
   letter-spacing: 0.5px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .onsen-stage {
@@ -1145,4 +1149,88 @@ footer .footer-th {
   background-size: 24px 24px;
   opacity: 0.15;
   margin: 0 24px;
+}
+
+/* ===================================================================
+ * RESPONSIVE — Tablet ≤ 768px
+ * =================================================================== */
+@media (max-width: 768px) {
+  /* Nav: hide links, keep brandmark */
+  .nav-links { display: none; }
+
+  /* Hero */
+  .hero { padding: 88px 16px 40px; }
+  .hero-grid { gap: 16px; }
+  .face-frame { width: 260px !important; height: 260px !important; }
+
+  /* Sections */
+  section { padding: 64px 16px; }
+
+  /* Cast */
+  .cast-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .capy-card { padding: 14px 12px 12px; }
+
+  /* Game */
+  .game-stage { min-height: 440px; }
+  .game-tree  { width: 120px; height: 180px; }
+  .tree-leaves { width: 120px; height: 112px; }
+  .tree-trunk  { width: 22px; height: 68px; }
+  .game-capys  { left: 150px; gap: 4px; }
+
+  /* Wheel */
+  .wheel { padding: 40px 16px; }
+  .wheel-panel { padding: 24px 20px 20px; margin-top: 20px; }
+
+  /* Onsen */
+  .onsen-stage { height: 380px; }
+  .onsen-capys { top: 36px; }
+  .bliss-bar { gap: 10px; }
+  .bliss-bar-label { font-size: 15px; }
+}
+
+/* ===================================================================
+ * RESPONSIVE — Phone ≤ 480px
+ * =================================================================== */
+@media (max-width: 480px) {
+  /* Nav brandmark shrink */
+  .brandmark { font-size: 17px; padding: 5px 12px 5px 6px; }
+  .brandmark img { width: 32px !important; height: 32px !important; }
+
+  /* Hero */
+  .hero { padding: 80px 12px 32px; }
+  .face-frame { width: 220px !important; height: 220px !important; }
+  .hero-sub { font-size: 16px; }
+
+  /* Sections */
+  section { padding: 48px 12px; }
+
+  /* Cast — 2 columns but tighter */
+  .cast-grid { gap: 10px; }
+  .capy-card { padding: 12px 10px 10px; }
+
+  /* Game */
+  .game-layout { gap: 16px; }
+  .game-stage { min-height: 360px; }
+  .game-tree  { width: 90px; height: 140px; }
+  .tree-leaves { width: 90px; height: 85px; }
+  .tree-trunk  { width: 16px; height: 55px; }
+  .game-tree-left  { left: 10px; }
+  .game-tree-right { right: 10px; }
+  .game-capys { left: 106px; right: 10px; }
+  .game-hud { gap: 8px; }
+  .score-chip { font-size: 15px; padding: 6px 12px; }
+
+  /* Wheel */
+  .wheel-panel-title { font-size: clamp(26px, 8vw, 44px); }
+
+  /* Onsen */
+  .onsen-stage { height: 320px; }
+  .onsen-capys { top: 24px; gap: 6px; }
+
+  /* Footer */
+  footer { font-size: 18px; padding: 36px 16px; }
 }

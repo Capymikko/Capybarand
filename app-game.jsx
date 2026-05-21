@@ -698,9 +698,8 @@ function Spring({ soundOn }) {
             <div className="bliss-bar">
               <div className="bliss-bar-label">Capy Bliss</div>
               <div className="bliss-bar-track">
-                <div className="bliss-bar-fill" style={{ width: bliss + '%' }}>
-                  <span className="bliss-bar-percent">{Math.round(bliss)}%</span>
-                </div>
+                <div className="bliss-bar-fill" style={{ width: bliss + '%' }} />
+                <span className="bliss-bar-percent">{Math.round(bliss)}%</span>
               </div>
             </div>
 
