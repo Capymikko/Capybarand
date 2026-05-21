@@ -375,7 +375,6 @@ section { position: relative; padding: 96px 24px; }
   margin: 0 auto;
   display: grid;
   place-items: center;
-  overflow: hidden;
   background: transparent;
   border-radius: 8px;
 }
@@ -1168,29 +1167,29 @@ footer .footer-th {
   /* Nav: hide links, keep brandmark */
   .nav-links { display: none; }
 
-  /* Hero — bigger image, better spacing */
+  /* Hero — bigger image + breathing room between buttons and image */
   .hero { padding: 88px 16px 40px; }
-  .hero-grid { gap: 16px; }
+  .hero-grid { gap: 40px; }
   .face-frame { width: min(340px, 85vw) !important; height: min(340px, 85vw) !important; }
 
   /* Sections */
   section { padding: 64px 16px; }
 
-  /* Cast — 2-col, image wrapper fills card width */
+  /* Cast — 2-col, square image fills card without cropping */
   .cast-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     margin-top: 32px;
   }
   .capy-card { padding: 14px 12px 12px; }
-  .capy-card-imgwrap { width: 100%; height: 160px; }
+  .capy-card-imgwrap { width: 100%; height: auto; aspect-ratio: 1; }
 
-  /* Game — Catch the Orange: shrink capy images */
+  /* Game — Catch the Orange: center all capys in one row */
   .game-stage { min-height: 440px; }
   .game-tree  { width: 120px; height: 180px; }
   .tree-leaves { width: 120px; height: 112px; }
   .tree-trunk  { width: 22px; height: 68px; }
-  .game-capys  { left: 150px; gap: 4px; }
+  .game-capys  { left: 0; right: 0; justify-content: center; flex-wrap: nowrap; gap: 6px; }
   .game-capy img { width: 72px !important; height: 72px !important; }
 
   /* Wheel */
@@ -1221,13 +1220,13 @@ footer .footer-th {
   /* Sections */
   section { padding: 48px 12px; }
 
-  /* Cast — 2-col tighter, image fills card */
+  /* Cast — 2-col tighter, square image, no cropping */
   .cast-grid { gap: 10px; }
   .capy-card { padding: 12px 10px 10px; }
-  .capy-card-imgwrap { width: 100%; height: 130px; }
+  .capy-card-imgwrap { width: 100%; height: auto; aspect-ratio: 1; }
   .capy-card .name { font-size: 20px; }
 
-  /* Game — Catch the Orange: small stage, tiny capys */
+  /* Game — Catch the Orange: centered row on green grass */
   .game-layout { gap: 16px; }
   .game-stage { min-height: 360px; }
   .game-tree  { width: 90px; height: 140px; }
@@ -1235,15 +1234,15 @@ footer .footer-th {
   .tree-trunk  { width: 16px; height: 55px; }
   .game-tree-left  { left: 10px; }
   .game-tree-right { right: 10px; }
-  .game-capys { left: 106px; right: 10px; }
-  .game-capy img { width: 54px !important; height: 54px !important; }
+  .game-capys { left: 0; right: 0; justify-content: center; flex-wrap: nowrap; gap: 4px; }
+  .game-capy img { width: 64px !important; height: 64px !important; }
   .game-hud { gap: 8px; }
   .score-chip { font-size: 15px; padding: 6px 12px; }
 
   /* Wheel */
   .wheel-panel-title { font-size: clamp(26px, 8vw, 44px); }
 
-  /* Onsen Pop: tiny capys, no wrap */
+  /* Onsen Pop: no wrap, all 5 in one row */
   .onsen-stage { height: 320px; }
   .onsen-capys { top: 24px; gap: 4px; flex-wrap: nowrap; }
   .onsen-capy img { width: 60px !important; height: 60px !important; }
