@@ -317,12 +317,7 @@ function CapyCard({ capy, onSqueak }) {
         {capy.quote}
         <span className="th">{capy.quoteTh}</span>
       </div>
-      <div style={{
-        display: 'grid', placeItems: 'center',
-        overflow: 'hidden',
-        background: 'transparent',
-        borderRadius: 8, padding: "0px", width: "180px", height: "200px"
-      }}>
+      <div className="capy-card-imgwrap">
         <img
           src={capy.cardSrc || capy.src}
           alt={capy.name}
