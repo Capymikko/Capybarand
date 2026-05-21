@@ -164,6 +164,72 @@ h1, h2, h3 { margin: 0; }
   opacity: 0.8;
 }
 
+/* ====== Mobile hamburger button ====== */
+.nav-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--cream);
+  border: var(--border-pixel);
+  box-shadow: var(--shadow-pixel-sm);
+  border-radius: 999px;
+  font-size: 22px;
+  color: var(--ink);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.15s;
+}
+.nav-hamburger:hover { background: var(--y); }
+
+/* ====== Mobile dropdown menu ====== */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 44;
+  background: rgba(26, 15, 8, 0.25);
+}
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 16px;
+  right: 16px;
+  z-index: 45;
+  background: var(--cream);
+  border: var(--border-pixel);
+  box-shadow: var(--shadow-pixel-lg);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: menuDrop 0.18s ease-out;
+}
+@keyframes menuDrop {
+  from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.mobile-menu-link {
+  font-family: var(--font-disp);
+  font-size: 22px;
+  letter-spacing: 0.3px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 13px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: block;
+  transition: background 0.12s;
+}
+.mobile-menu-link:hover,
+.mobile-menu-link:active { background: var(--y); }
+.mobile-menu-link--disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ====== Dark mode toggle ====== */
 .mode-toggle {
   display: flex; align-items: center; gap: 7px;
@@ -1164,8 +1230,9 @@ footer .footer-th {
  * RESPONSIVE — Tablet ≤ 768px
  * =================================================================== */
 @media (max-width: 768px) {
-  /* Nav: hide links, keep brandmark */
+  /* Nav: hide links, show hamburger */
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
 
   /* Hero — bigger image + breathing room between buttons and image */
   .hero { padding: 88px 16px 40px; }

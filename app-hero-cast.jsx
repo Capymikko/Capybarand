@@ -86,29 +86,58 @@ function SkyDecor() {
 }
 
 /* =========================================================================
- * Top Nav with circular badge
+ * Top Nav with circular badge + mobile hamburger
  * ========================================================================= */
 function TopNav({ onJump, mode, onToggleMode }) {
-  return (
-    <nav className="topnav">
-      <div className="brandmark">
-        <img src="assets/badge.svg"
-        alt="" style={{
-          width: 44, height: 44, objectFit: 'contain'
-        }} />
-        <span>CAPYBARAND</span>
-      </div>
-      <div className="nav-links">
-        <a className="nav-link" onClick={() => onJump('cast')}>Cast</a>
-        <a className="nav-link" onClick={() => onJump('game')}>Play</a>
-        <a className="nav-link" onClick={() => onJump('manifesto')}>Manifesto</a>
-        <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
-        <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
-        <a className="nav-link nav-link--disabled">Store</a>
-      </div>
-      {/* mode-toggle hidden for now */}
-    </nav>);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const jump = (id) => {
+    setMenuOpen(false);
+    onJump(id);
+  };
+
+  return (
+    <>
+      <nav className="topnav">
+        <div className="brandmark">
+          <img src="assets/badge.svg"
+          alt="" style={{
+            width: 44, height: 44, objectFit: 'contain'
+          }} />
+          <span>CAPYBARAND</span>
+        </div>
+        <div className="nav-links">
+          <a className="nav-link" onClick={() => onJump('cast')}>Cast</a>
+          <a className="nav-link" onClick={() => onJump('game')}>Play</a>
+          <a className="nav-link" onClick={() => onJump('manifesto')}>Manifesto</a>
+          <a className="nav-link" onClick={() => onJump('wheel')}>Wheel</a>
+          <a className="nav-link" onClick={() => onJump('spring')}>Hot&nbsp;Spring</a>
+          <a className="nav-link nav-link--disabled">Store</a>
+        </div>
+        {/* Mobile hamburger button */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Menu">
+          {menuOpen ? '✕' : '☰'}
+        </button>
+      </nav>
+
+      {/* Mobile slide-down menu */}
+      {menuOpen && (
+        <>
+          <div className="mobile-menu-backdrop" onClick={() => setMenuOpen(false)} />
+          <div className="mobile-menu">
+            <a className="mobile-menu-link" onClick={() => jump('cast')}>★ Cast</a>
+            <a className="mobile-menu-link" onClick={() => jump('game')}>◇ Play</a>
+            <a className="mobile-menu-link" onClick={() => jump('manifesto')}>♡ Manifesto</a>
+            <a className="mobile-menu-link" onClick={() => jump('wheel')}>◎ Wheel</a>
+            <a className="mobile-menu-link" onClick={() => jump('spring')}>♨ Hot Spring</a>
+            <a className="mobile-menu-link mobile-menu-link--disabled">Store · Soon</a>
+          </div>
+        </>
+      )}
+    </>);
 }
 
 /* =========================================================================
